@@ -10,7 +10,7 @@ const theme = {
     $primaryContrast: 'white',
 
     $btnSecondary: 'hsl(0, 0%, 85%)',
-    $btnSecondaryContrst: MUTED_BLACK,
+    $btnSecondaryContrast: MUTED_BLACK,
     $btnTextOnly: MUTED_GRAY,
 
     $title: MUTED_BLACK,
