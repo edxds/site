@@ -19,7 +19,7 @@ export const i18nPropsFromCtx = (ctx: NextPageContext): Partial<{ lang: string; 
   };
 };
 
-export const { i18n, useTranslation, withTranslation, appWithTranslation } = new NextI18N({
+export const { i18n, useTranslation, withTranslation, appWithTranslation, Trans } = new NextI18N({
   defaultLanguage: 'pt-BR',
   otherLanguages: ['en'],
   localeSubpaths: NextConfig().publicRuntimeConfig.localeSubpaths,
