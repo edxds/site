@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { useTranslation } from '@root/i18n';
 
+import { SwapLanguageButton } from '@src/components/SwapLanguageButton';
 import { styled } from '@src/stitches.config';
 
 const Container = styled('div', {
@@ -20,28 +21,8 @@ const TextContainer = styled('div', {
   alignItems: 'center',
 });
 
-const Button = styled('button', {
-  border: 0,
-  padding: '0 1rem',
-  background: 'transparent',
-  fontSize: '0.85rem',
-  color: 'hsl(0, 0%, 40%)',
-
-  ':focus': {
-    outline: 0,
-  },
-
-  ':hover': {
-    textDecoration: 'underline',
-    cursor: 'pointer',
-  },
-});
-
 export default function Index() {
-  const { t, i18n } = useTranslation();
-
-  const isInPortuguese = i18n.language === 'pt-BR';
-  const swapLanguage = () => i18n.changeLanguage(isInPortuguese ? 'en' : 'pt-BR');
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -49,9 +30,7 @@ export default function Index() {
         <title>EDXDS</title>
       </Head>
       <Container>
-        <Button css={{ marginTop: 16, marginBottom: 16 }} onClick={swapLanguage}>
-          {t('swap-language')}
-        </Button>
+        <SwapLanguageButton css={{ my: '$2' }} />
         <TextContainer css={{ marginBottom: '4rem' }}>
           <h1>{t('hello-world')}</h1>
         </TextContainer>
