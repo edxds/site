@@ -1,4 +1,8 @@
 {
   "hello-world": "Olá Mundo!",
-  "swap-language": "Also available in English <emoji>🇬🇧</emoji>"
+  "swap-language": "Also available in English <emoji>🇬🇧</emoji>",
+  "landing-title": "Olá!",
+  "landing-text": "Me chamo Eduardo e sou um desenvolvedor de software e designer.",
+  "landing-cta": "Veja meus projetos",
+  "landing-cta-alt": "Ou leia mais sobre mim"
 }
