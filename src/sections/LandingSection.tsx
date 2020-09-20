@@ -22,6 +22,20 @@ const SectionContainer = styled(Section, {
   },
 });
 
+const Header = styled('header', {
+  flex: 1,
+
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  margin: '$4 $2',
+  sm: {
+    margin: '$16 $8',
+  },
+});
+
 const WaveImg = styled('img', {
   height: 'auto',
   width: '96px',
@@ -39,7 +53,7 @@ export function LandingSection() {
   return (
     <SectionContainer>
       <SwapLanguageButton />
-      <Box css={{ display: 'flex', flex: 1, fd: 'column', jc: 'center', ai: 'center' }}>
+      <Header>
         <WaveImg src={wave} aria-hidden />
         <Box css={{ display: 'flex', fd: 'column', ai: 'center', sy: '$2' }}>
           {/* Wrapping text elements in divs prevent the spacing margins from being overriden */}
@@ -54,7 +68,7 @@ export function LandingSection() {
             </Text>
           </div>
         </Box>
-      </Box>
+      </Header>
       <Box css={{ display: 'flex', fd: 'column', ai: 'center', sy: '$3' }}>
         <Link href="#my-projects" passHref>
           <Button variant="contained" color="primary" as="a">
