@@ -43,8 +43,12 @@ export const Button = styled('button', {
         transitionEased: 'transform 325ms',
 
         background: 'transparent',
-        fontSize: '$btnTextOnly',
         color: '$btnTextOnly',
+
+        fontSize: 'calc(var(--fontSizes-btnTextOnly) * 0.875)',
+        sm: {
+          fontSize: '$btnTextOnly',
+        },
 
         hoverable: {
           ':hover': {
@@ -53,12 +57,18 @@ export const Button = styled('button', {
         },
       },
       contained: {
-        padding: '$3 $4',
-        fontSize: '$btnTitle',
+        padding: '$2 $3',
+        fontSize: 'calc(var(--fontSizes-btnTitle) * 0.8)',
+        sm: {
+          padding: '$3 $4',
+          fontSize: '$btnTitle',
+        },
+
         borderRadius: '$default',
 
         backgroundColor: '$btnSecondary',
         color: '$btnSecondaryContrast',
+        textAlign: 'center',
         boxShadow: '0 0 2px hsla(0, 0%, 40%, 0.1), 0 8px 16px hsla(0, 0%, 40%, 0.1)',
 
         transitionEased: 'transform 325ms, box-shadow 325ms',
