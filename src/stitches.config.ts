@@ -68,6 +68,7 @@ export const { styled, css } = createStyled({
     md: (rule) => `@media (min-width: 960px) { ${rule} }`,
     lg: (rule) => `@media (min-width: 1280px) { ${rule} }`,
     xl: (rule) => `@media (min-width: 1920px) { ${rule} }`,
+    hoverable: (rule) => `@media (hover) { ${rule} }`,
   },
   utils: {
     pt: () => (value: SpaceStitchesValue) => ({ paddingTop: value }),
