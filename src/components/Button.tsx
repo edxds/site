@@ -46,8 +46,10 @@ export const Button = styled('button', {
         fontSize: '$btnTextOnly',
         color: '$btnTextOnly',
 
-        ':hover': {
-          textDecoration: 'underline',
+        hoverable: {
+          ':hover': {
+            textDecoration: 'underline',
+          },
         },
       },
       contained: {
@@ -61,10 +63,12 @@ export const Button = styled('button', {
 
         transitionEased: 'transform 325ms, box-shadow 325ms',
 
-        ':hover': {
-          transform: 'scale(1.08)',
-          boxShadow:
-            '0 0 2px hsla(0, 0%, 40%, 0.1), 0 8px 16px hsla(0, 0%, 40%, 0.1), 0 16px 32px hsla(0, 0%, 40%, 0.1)',
+        hoverable: {
+          ':hover': {
+            transform: 'scale(1.08)',
+            boxShadow:
+              '0 0 2px hsla(0, 0%, 40%, 0.1), 0 8px 16px hsla(0, 0%, 40%, 0.1), 0 16px 32px hsla(0, 0%, 40%, 0.1)',
+          },
         },
 
         ':active': {
@@ -78,9 +82,11 @@ export const Button = styled('button', {
         color: '$primaryContrast',
         boxShadow: '0 0 2px $primaryShadow, 0 8px 16px $primaryShadow',
 
-        ':hover': {
-          boxShadow:
-            '0 0 2px $primaryShadow, 0 8px 16px $primaryShadow, 0 16px 32px $primaryShadow',
+        hoverable: {
+          ':hover': {
+            boxShadow:
+              '0 0 2px $primaryShadow, 0 8px 16px $primaryShadow, 0 16px 32px $primaryShadow',
+          },
         },
 
         ':active': {
