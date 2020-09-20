@@ -22,7 +22,16 @@ const SectionContainer = styled(Section, {
   },
 });
 
-const WaveImg = styled('img', { width: '128px', height: 'auto' });
+const WaveImg = styled('img', {
+  height: 'auto',
+  width: '96px',
+  mb: '$4',
+
+  sm: {
+    width: '128px',
+    mb: '$8',
+  },
+});
 
 export function LandingSection() {
   const { t } = useTranslation();
@@ -30,7 +39,7 @@ export function LandingSection() {
   return (
     <SectionContainer>
       <SwapLanguageButton />
-      <Box css={{ display: 'flex', flex: 1, fd: 'column', jc: 'center', ai: 'center', sy: '$8' }}>
+      <Box css={{ display: 'flex', flex: 1, fd: 'column', jc: 'center', ai: 'center' }}>
         <WaveImg src={wave} aria-hidden />
         <Box css={{ display: 'flex', fd: 'column', ai: 'center', sy: '$2' }}>
           {/* Wrapping text elements in divs prevent the spacing margins from being overriden */}
