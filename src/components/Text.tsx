@@ -6,13 +6,22 @@ export const Text = styled('span', {
     type: {
       landingTitle: {
         color: '$title',
-        fontSize: '$landingTitle',
         lineHeight: '$display',
         letterSpacing: '$display',
+
+        // Stitches doesn't have support for using tokens in CSS functions yet,
+        // but we can still access token values since they just map to CSS properties.
+        fontSize: 'calc(var(--fontSizes-landingTitle) * 0.8)',
+        md: {
+          fontSize: '$landingTitle',
+        },
       },
       landingText: {
         color: '$body',
-        fontSize: '$landingText',
+        fontSize: 'calc(var(--fontSizes-landingText) * 0.8)',
+        md: {
+          fontSize: '$landingText',
+        },
       },
       sectionTitle: {
         color: '$title',
