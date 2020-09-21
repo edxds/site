@@ -103,6 +103,10 @@ export const Button = styled('button', {
           boxShadow: '0 0 2px $primaryShadow, 0 8px 16px $primaryShadow',
         },
       },
+      primaryText: {
+        color: '$primary',
+      },
+    },
     },
   },
 });
