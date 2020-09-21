@@ -42,6 +42,7 @@ export const Text = styled('span', {
       },
       highlightedProjectBody: {
         color: '$body',
+        lineHeight: '$text',
         fontSize: 'calc(var(--fontSizes-highlightedProjectBody) * 0.8)',
         sm: {
           fontSize: '$highlightedProjectBody',
