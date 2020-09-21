@@ -56,6 +56,19 @@ const theme = {
     $body: '1.25rem',
     $highlightedProjectBody: '1.5rem',
   },
+  fontWeights: {
+    $landingTitle: 'bold',
+    $landingText: '400',
+
+    $sectionTitle: 'bold',
+    $sectionTagline: '400',
+
+    $asideTitle: '400',
+    $asideText: '400',
+
+    $btnTitle: '500',
+    $highlightedProjectBody: '500',
+  },
 };
 
 type StitchesValue = string & unknown;
