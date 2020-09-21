@@ -42,7 +42,10 @@ export const Text = styled('span', {
       },
       highlightedProjectBody: {
         color: '$body',
-        fontSize: '$highlightedProjectBody',
+        fontSize: 'calc(var(--fontSizes-highlightedProjectBody) * 0.8)',
+        sm: {
+          fontSize: '$highlightedProjectBody',
+        },
       },
       asideTitle: {
         color: '$title',
