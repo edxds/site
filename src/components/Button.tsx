@@ -107,6 +107,14 @@ export const Button = styled('button', {
         color: '$primary',
       },
     },
+    placement: {
+      inline: {
+        padding: 0,
+        fontSize: 'inherit',
+        sm: {
+          fontSize: 'inherit',
+        },
+      },
     },
   },
 });
