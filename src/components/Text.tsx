@@ -34,9 +34,12 @@ export const Text = styled('span', {
       },
       sectionTagline: {
         color: '$subtitle',
-        fontSize: '$sectionTagline',
-        fontWeight: '$sectionTagline',
         letterSpacing: '$text',
+        fontWeight: '$sectionTagline',
+        fontSize: 'calc(var(--fontSizes-sectionTagline) * 0.8)',
+        sm: {
+          fontSize: '$sectionTagline',
+        },
       },
       body: {
         color: '$body',
