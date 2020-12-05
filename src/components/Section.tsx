@@ -1,7 +1,5 @@
-import { styled } from '@src/stitches.config';
+import React from 'react';
 
-export const Section = styled('section', {
-  width: '100vw',
-  maxWidth: '100%',
-  minHeight: '100vh',
-});
+export function Section({ className, ...props }: React.ComponentPropsWithoutRef<'section'>) {
+  return <section className={`w-screen max-w-full min-h-screen ${className}`} {...props} />;
+}

@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'art' 'content';
+  @apply gap-4;
+}
+
+@screen sm {
+  .grid {
+    @apply gap-8;
+  }
+}
+
+@screen lg {
+  .grid {
+    grid-template-columns: minmax(auto, 764px) minmax(auto, 564px);
+    grid-template-rows: auto;
+    grid-template-areas: 'art content';
+    align-items: center;
+  }
+
+  .grid.flipped {
+    grid-template-columns: minmax(auto, 564px) minmax(auto, 764px);
+    grid-template-areas: 'content art';
+  }
+}

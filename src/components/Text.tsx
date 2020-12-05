@@ -1,79 +1,57 @@
-import { styled } from '@src/stitches.config';
+import React from 'react';
+import clsx from 'clsx';
 
-export const Text = styled('span', {
-  margin: 0,
-  variants: {
-    type: {
-      landingTitle: {
-        color: '$title',
-        lineHeight: '$display',
-        letterSpacing: '$display',
-        fontWeight: '$landingTitle',
+import { Box, PolymorphicComponentProps } from './Box';
 
-        // Stitches doesn't have support for using tokens in CSS functions yet,
-        // but we can still access token values since they just map to CSS properties.
-        fontSize: 'calc(var(--fontSizes-landingTitle) * 0.6)',
-        sm: {
-          fontSize: '$landingTitle',
-        },
-      },
-      landingText: {
-        color: '$body',
-        fontWeight: '$landingText',
-        fontSize: 'calc(var(--fontSizes-landingText) * 0.6)',
-        sm: {
-          fontSize: '$landingText',
-        },
-      },
-      sectionTitle: {
-        color: '$title',
-        fontSize: '$sectionTitle',
-        fontWeight: '$sectionTitle',
-        lineHeight: '$display',
-        letterSpacing: '$display',
-      },
-      sectionTagline: {
-        color: '$subtitle',
-        letterSpacing: '$text',
-        fontWeight: '$sectionTagline',
-        fontSize: 'calc(var(--fontSizes-sectionTagline) * 0.8)',
-        sm: {
-          fontSize: '$sectionTagline',
-        },
-      },
-      body: {
-        color: '$body',
-        fontSize: '$body',
-        letterSpacing: '$text',
-        lineHeight: '$text',
-      },
-      highlightedProjectBody: {
-        color: '$body',
-        lineHeight: '$text',
-        fontWeight: '$highlightedProjectBody',
-        fontSize: 'calc(var(--fontSizes-highlightedProjectBody) * 0.8)',
-        sm: {
-          fontSize: '$highlightedProjectBody',
-        },
-      },
-      asideTitle: {
-        color: '$title',
-        fontSize: '$asideTitle',
-        fontWeight: '$asideTitle',
-        letterSpacing: '$display',
-        lineHeight: '$display',
-      },
-      asideBody: {
-        color: '$body',
-        fontWeight: '$asideText',
-        fontSize: '$asideText',
-        letterSpacing: '$text',
-      },
+type BaseTextProps = {
+  type:
+    | 'landingTitle'
+    | 'landingText'
+    | 'sectionTitle'
+    | 'sectionTagline'
+    | 'highlightedProjectBody'
+    | 'body'
+    | 'asideTitle'
+    | 'asideBody';
+  align?: 'left' | 'center' | 'right';
+  dontRestrict?: boolean;
+};
+
+const elementMap: { [key in BaseTextProps['type']]: React.ElementType } = {
+  landingTitle: 'h1',
+  landingText: 'p',
+  sectionTitle: 'h2',
+  sectionTagline: 'p',
+  highlightedProjectBody: 'p',
+  body: 'p',
+  asideTitle: 'h6',
+  asideBody: 'p',
+};
+
+export type TextProps<E extends React.ElementType> = PolymorphicComponentProps<E, BaseTextProps>;
+
+export function Text<E extends React.ElementType = 'span'>(props: TextProps<E>) {
+  const { type, align, dontRestrict, className, ..._pass } = props;
+  const pass = _pass as PolymorphicComponentProps<E, unknown>;
+
+  const classes = clsx([
+    className,
+    {
+      'text-left': align === 'left',
+      'text-right': align === 'right',
+      'text-center': align === 'center',
+      'text-4xl sm:text-7xl font-bold text-black tracking-tight': type === 'landingTitle',
+      'text-xl sm:text-3xl text-gray-500': type === 'landingText',
+      'text-2xl sm:text-4xl font-bold text-black tracking-tight': type === 'sectionTitle',
+      'text-base sm:text-xl tracking-wide text-gray-600': type === 'sectionTagline',
+      'text-lg sm:text-2xl font-medium leading-7 sm:leading-9 text-gray-500':
+        type === 'highlightedProjectBody',
+      'text-base font-normal sm:text-xl leading-7 sm:leading-9 text-gray-500': type === 'body',
+      'text-base sm:text-2xl tracking-tight leading-tight': type === 'asideTitle',
+      'text-sm text-gray-500 tracking-wide': type === 'asideBody',
+      'max-w-screen-md': !dontRestrict,
     },
-    align: {
-      left: { textAlign: 'left' },
-      right: { textAlign: 'right' },
-      center: { textAlign: 'center' },
-    },
-  },
-});
+  ]);
+
+  return <Box className={classes} as={elementMap[type]} {...pass} />;
+}

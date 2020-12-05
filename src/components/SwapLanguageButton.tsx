@@ -2,21 +2,23 @@ import React from 'react';
 
 import { Trans, useTranslation } from '@root/i18n';
 
-import { Box } from './Box';
-import { Button, ButtonProps } from './Button';
+import { Button, BaseButtonProps } from './Button';
+import { PolymorphicComponentProps } from './Box';
 
-export function SwapLanguageButton(props: Pick<ButtonProps, 'css'>) {
+export function SwapLanguageButton<E extends React.ElementType>(
+  props: PolymorphicComponentProps<E, Omit<BaseButtonProps, 'variant'>>,
+) {
   const { t, i18n } = useTranslation();
 
   const isInPortuguese = i18n.language === 'pt-BR';
   const swapLanguage = () => i18n.changeLanguage(isInPortuguese ? 'en' : 'pt-BR');
 
   return (
-    <Button variant="text" onClick={swapLanguage} {...props}>
+    <Button {...props} variant="text" onClick={swapLanguage}>
       <Trans
         t={t}
         i18nKey="swap-language"
-        components={{ emoji: <Box css={{ ml: '$1', color: 'black' }} as="span" /> }}
+        components={{ emoji: <span className="ml-1 text-black" /> }}
       />
     </Button>
   );

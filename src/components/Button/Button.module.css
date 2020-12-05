@@ -1,0 +1,59 @@
+.button {
+  @apply focus:outline-none border-none focus:ring-opacity-50;
+  @apply transition duration-300 ease-in-out;
+  @apply font-medium;
+}
+
+.button.button-text {
+  @apply p-1 -m-1;
+  @apply text-sm sm:text-base;
+  @apply bg-transparent text-gray-500;
+  @apply hoverable:hover:underline;
+  @apply focus:ring-2 focus:ring-gray-300;
+  @apply rounded-sm;
+}
+
+.button.button-text.button-text-primary {
+  @apply text-primary;
+  @apply focus:ring-2 focus:ring-primary;
+}
+
+.button.button-contained {
+  position: relative;
+
+  @apply py-4 px-6 sm:py-6 sm:px-8;
+  @apply text-base sm:text-xl;
+  @apply bg-primary text-primary-contrast;
+  @apply transform-gpu hoverable:hover:scale-105;
+  @apply rounded;
+
+  box-shadow: 0 0 2px theme(colors.primary.shadow), 0 8px 16px theme(colors.primary.shadow);
+}
+
+@media (hover) {
+  .button.button-contained:hover {
+    box-shadow: 0 0 2px theme(colors.primary.shadow), 0 8px 16px theme(colors.primary.shadow),
+      0 16px 32px theme(colors.primary.shadow);
+  }
+}
+
+/* Because the .button-contained class already defines a box shadow,
+   we need to define the focus ring on a pseudo element, so that its
+   box shadow doesn't override the former. */
+.button.button-contained::after {
+  content: '';
+  border-radius: inherit;
+
+  @apply inset-0;
+  @apply absolute;
+
+  @apply transition duration-300 ease-in-out;
+}
+
+.button.button-contained:focus::after {
+  @apply ring-opacity-50 ring-4 ring-primary;
+}
+
+.button.button-inline {
+  font-size: inherit;
+}

@@ -2,60 +2,21 @@ import React from 'react';
 
 import { Link, useTranslation } from '@root/i18n';
 
-import { Box } from '@src/components/Box';
 import { Text } from '@src/components/Text';
 import { Button } from '@src/components/Button';
 import { Section } from '@src/components/Section';
 import { SwapLanguageButton } from '@src/components/SwapLanguageButton';
-import { styled } from '@src/stitches.config';
 import wave from '@src/assets/wave.svg';
-
-const SectionContainer = styled(Section, {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-
-  padding: '$4',
-  md: {
-    padding: '$16',
-    paddingTop: '$8',
-  },
-});
-
-const Header = styled('header', {
-  flex: 1,
-
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-
-  margin: '$4 $2',
-  sm: {
-    margin: '$16 $8',
-  },
-});
-
-const WaveImg = styled('img', {
-  height: 'auto',
-  width: '96px',
-  mb: '$4',
-
-  sm: {
-    width: '128px',
-    mb: '$8',
-  },
-});
 
 export function LandingSection() {
   const { t } = useTranslation();
 
   return (
-    <SectionContainer>
+    <Section className="flex flex-col items-center p-8 md:p-32 md:pt-16">
       <SwapLanguageButton />
-      <Header>
-        <WaveImg src={wave} aria-hidden />
-        <Box css={{ display: 'flex', fd: 'column', ai: 'center', sy: '$2' }}>
+      <div className="flex flex-1 flex-col justify-center items-center my-8 mx-4 sm:my-32 sm:mx-16">
+        <img className="h-auto w-24 mb-8 sm:w-32 sm:mb-16" src={wave} aria-hidden />
+        <div className="flex flex-col items-center space-y-4">
           {/* Wrapping text elements in divs prevent the spacing margins from being overriden */}
           <div>
             <Text type="landingTitle" align="center" as="h1">
@@ -63,15 +24,15 @@ export function LandingSection() {
             </Text>
           </div>
           <div>
-            <Text type="landingText" align="center" as="p" css={{ maxWidth: 600 }}>
+            <Text type="landingText" align="center" style={{ maxWidth: 600 }}>
               {t('landing-text')}
             </Text>
           </div>
-        </Box>
-      </Header>
-      <Box css={{ display: 'flex', fd: 'column', ai: 'center', sy: '$3' }}>
+        </div>
+      </div>
+      <div className="flex flex-col items-center space-y-6">
         <Link href="#my-projects" passHref>
-          <Button variant="contained" color="primary" as="a">
+          <Button variant="contained" as="a">
             {t('landing-cta')}
           </Button>
         </Link>
@@ -80,7 +41,7 @@ export function LandingSection() {
             {t('landing-cta-alt')}
           </Button>
         </Link>
-      </Box>
-    </SectionContainer>
+      </div>
+    </Section>
   );
 }

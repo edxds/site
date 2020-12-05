@@ -1,0 +1,31 @@
+.art-ratio-container {
+  position: relative;
+
+  height: 0;
+  padding-top: 100%;
+
+  grid-area: art;
+}
+
+.art-img {
+  height: 100%;
+}
+
+@screen lg {
+  .art-ratio-container {
+    position: sticky;
+    top: theme('spacing.8');
+  }
+
+  .art-img {
+    margin-left: -128px;
+    height: calc(100% + 128px);
+
+    margin-top: var(--art-img-offset-top);
+    margin-bottom: var(--art-img-offset-bottom);
+  }
+
+  .art-img.flipped {
+    margin-right: -128px;
+  }
+}

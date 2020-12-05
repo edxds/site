@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import NApp, { AppContext, AppProps } from 'next/app';
-import 'normalize.css';
 
 import { appWithTranslation, i18n } from '@root/i18n';
 
